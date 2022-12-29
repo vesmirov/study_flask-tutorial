@@ -2,6 +2,8 @@ import os
 
 from flask import Flask
 
+from flaskr import db, auth
+
 
 # factory function
 def create_app(test_config=None):
@@ -30,8 +32,8 @@ def create_app(test_config=None):
     def hello():
         return 'Hello, World'
 
-    from flaskr import db
     db.init_app(app)
+    app.register_blueprint(auth.bp)
 
     return app
 
