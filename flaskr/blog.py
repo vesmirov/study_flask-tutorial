@@ -95,7 +95,7 @@ def delete(post_id):
     get_post(post_id, True)
     db = get_db()
     db.execute(
-        'DELETE FROM post'
+        'DELETE FROM post '
         'WHERE id = ?',
         (post_id,),
     )
