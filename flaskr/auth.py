@@ -14,8 +14,8 @@ def login_required(view):
     def wrapped_view(**kwargs):
         if not g.user:
             return redirect(url_for('auth.login'))
-        return view
-    return wrapped_view()
+        return view(**kwargs)
+    return wrapped_view
 
 
 # bp.route associates the URL /register with the register view
